@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PostCard from "../components/PostCard";
 
 export default function HomePage() {
     const [posts, setPosts] = useState ([]);
@@ -27,14 +28,11 @@ export default function HomePage() {
     
     return (
         <section className="page">
-            <div className="grid">
-                {posts.map (post => (
-                    <article key={post.id} className="post-card">
-                        <img src={post.image} alt={post.caption} />
-                        <h3>{post.caption}</h3>
-                    </article>
-                ))}
-            </div>
+          <div className="grid">
+            {posts.map((post) => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </div>
         </section>
-    );
-}
+      );
+    }
